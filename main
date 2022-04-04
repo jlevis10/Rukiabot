@@ -1,2 +1,46 @@
 #main
 
+#create twitter bot
+#importing libraries
+import tweepy
+import time
+import random
+
+
+#defining keys
+consumer_key = 'consumer_key'
+consumer_secret = 'consumer_secret'
+access_token = 'access_token'
+access_token_secret = 'access_token_secret'
+
+
+#authenticating
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
+
+
+#defining function
+def tweet_this(tweet_text):
+    api.update_status(tweet_text)
+    print('Tweeted: ' + tweet_text)
+    time.sleep(60)
+
+
+#defining loop to tweet
+while True:
+    tweet_this('Hello World!')
+    time.sleep(random.randint(60, 300))
+
+
+    
+#end of program
+print('End of program')
+time.sleep(5)
+exit()
+
+
+
+
+
+
