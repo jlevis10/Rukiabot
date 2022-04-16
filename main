@@ -8,15 +8,15 @@ import random
 
 
 #defining keys
-consumer_key = 'consumer_key'
-consumer_secret = 'consumer_secret'
-access_token = 'access_token'
-access_token_secret = 'access_token_secret'
+API_key = '7gDxR8Og6g0HMwG03rlrhnIeN'
+API_key_secret = 'JTUzJCfPaSWP1yaw2HqzKVteZnQJjOPn7yRjV742Zgl2DQ3l8n'
+access_token = '1510381174849482758-7wcTyUsG6BLu7pBLVvZ1N6sIQ7dS9X'
+access_token_secret = 'Y0jh3WKQHXb2FZyrOrsFHJoEqsreLeGeyAclVoYOV4ytk'
 
 
 #authenticating
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
+auth = tweepy.OAuthHandler('7gDxR8Og6g0HMwG03rlrhnIeN', 'JTUzJCfPaSWP1yaw2HqzKVteZnQJjOPn7yRjV742Zgl2DQ3l8n')
+auth.set_access_token('1510381174849482758-7wcTyUsG6BLu7pBLVvZ1N6sIQ7dS9X', 'Y0jh3WKQHXb2FZyrOrsFHJoEqsreLeGeyAclVoYOV4ytk')
 api = tweepy.API(auth)
 
 
@@ -27,9 +27,14 @@ def tweet(tweet_text):
     time.sleep(60)
 
 
+
+
+tweet('Hello World!')
+         
+
 #defining loop to tweet
 while True:
-    tweet_this('Hello World!')
+    tweet('Hello World!')
     time.sleep(random.randint(60, 300))
 
 
