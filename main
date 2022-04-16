@@ -5,6 +5,7 @@
 import tweepy
 import time
 import random
+from haiku import Haiku
 
 
 #defining keys
@@ -27,14 +28,13 @@ def tweet(tweet_text):
     time.sleep(60)
 
 
-
-
-tweet('Hello World!')
+#create haiku object
+h = Haiku()
          
 
 #defining loop to tweet
 while True:
-    tweet('Hello World!')
+    tweet(h.generate())
     time.sleep(random.randint(60, 300))
 
 
