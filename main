@@ -1,49 +1,40 @@
-#main
-
-#create twitter bot
-#importing libraries
+# importing libraries
 import tweepy
 import time
 import random
 from haiku import Haiku
 
+# defining keys
+API_key = 'yqQbu4r2BAeIlS2iQLMmnMEKd'
+API_key_secret = 'dN23yCaP62vwQkF1P6eXwOrsrIuiOUnh4Bkc7ensbhTwLWudrh'
+access_token = '1510381174849482758-NEcK4AJO5YmesOCIzjseVXVfqKkGSy'
+access_token_secret = 'kbxUHs3psXff1qcAGBTLrpfzAQ7BVRWzMEbcsa0kocFjr'
 
-#defining keys
-API_key = '7gDxR8Og6g0HMwG03rlrhnIeN'
-API_key_secret = 'JTUzJCfPaSWP1yaw2HqzKVteZnQJjOPn7yRjV742Zgl2DQ3l8n'
-access_token = '1510381174849482758-7wcTyUsG6BLu7pBLVvZ1N6sIQ7dS9X'
-access_token_secret = 'Y0jh3WKQHXb2FZyrOrsFHJoEqsreLeGeyAclVoYOV4ytk'
-
-
-#authenticating
-auth = tweepy.OAuthHandler('7gDxR8Og6g0HMwG03rlrhnIeN', 'JTUzJCfPaSWP1yaw2HqzKVteZnQJjOPn7yRjV742Zgl2DQ3l8n')
-auth.set_access_token('1510381174849482758-7wcTyUsG6BLu7pBLVvZ1N6sIQ7dS9X', 'Y0jh3WKQHXb2FZyrOrsFHJoEqsreLeGeyAclVoYOV4ytk')
+# authenticating
+auth = tweepy.OAuthHandler(API_key, API_key_secret)
+auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
+try:
+    api.verify_credentials()
+    print("Authentication OK")
+except:
+    print("Error during authentication")
 
-#defining function
+
+# defining function
 def tweet(tweet_text):
     api.update_status(tweet_text)
     print('Tweeted: ' + tweet_text)
-    time.sleep(60)
 
 
-#create haiku object
-h = Haiku()
-         
 
-#defining loop to tweet
-while True:
+if __name__ == '__main__':
+    h = Haiku()
+    # defining loop to tweet
     tweet(h.generate())
-    time.sleep(random.randint(60, 300))
 
 
-#class which generates words to be tweeted using the tweet function
- 
- 
-#end of program
-print('End of program')
-time.sleep(5)
 exit()
 
 
