@@ -21,7 +21,7 @@ api = tweepy.API(auth)
 
 
 #defining function
-def tweet_this(tweet_text):
+def tweet(tweet_text):
     api.update_status(tweet_text)
     print('Tweeted: ' + tweet_text)
     time.sleep(60)
@@ -33,7 +33,9 @@ while True:
     time.sleep(random.randint(60, 300))
 
 
-    
+#class which generates words to be tweeted using the tweet function
+ 
+ 
 #end of program
 print('End of program')
 time.sleep(5)
