@@ -27,6 +27,8 @@ def tweet(tweet_text):
     api.update_status(tweet_text)
     print('Tweeted: ' + tweet_text)
 
+def reply(tweetid,tweet_text):
+    api.update_status(status=tweet_text, in_reply_to_status_id=tweetid, auto_populate_reply_metadata=True)
 
 
 if __name__ == '__main__':
