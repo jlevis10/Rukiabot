@@ -57,6 +57,7 @@ class DeepQuote():
         draw = ImageDraw.Draw(image)
         draw.text((20, 250), text, (255, 255, 255), font=font)
         image.save('quotepicture.jpg')
+
         try:
             media = api.media_upload('quotepicture.jpg')
             api.update_status(media_ids=[media.media_id], status='Quote of the day:')
