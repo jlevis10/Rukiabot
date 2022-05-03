@@ -1,9 +1,12 @@
 import random
+import os
+
 class Haiku():
     def __init__(self):
         self.name = 'Rukia'
 
-    def grab_word(self,s):
+    def grab_word(self,s, main_dir):
+        os.chdir(main_dir)
         if s == 1:
             if 0 == 0:
                 with open('one_syl.txt','r') as f:
@@ -54,15 +57,14 @@ class Haiku():
                 l2.append(num)
         return [l1,l2,l3]
 
-    def generate(self):
+    def generate(self, main_dir):
         seq = self.sequence()
         line1,line2,line3 = "","",""
         for e in seq[0]:
-            line1 += " " + self.grab_word(e)
+            line1 += " " + self.grab_word(e, main_dir)
         for e in seq[1]:
-            line2 += " " + self.grab_word(e)
+            line2 += " " + self.grab_word(e, main_dir)
         for e in seq[2]:
-            line3 += " " + self.grab_word(e)
+            line3 += " " + self.grab_word(e, main_dir)
         return line1 + '\n' + line2 + '\n' + line3
-
 
